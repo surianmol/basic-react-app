@@ -21,7 +21,6 @@ import React, { Component } from "react";
 class FormInput extends Component {
   state = {
     errorMessage: "",
-    value: this.props.value ? this.props.value : "",
     passwordState: true
   };
 
@@ -29,7 +28,6 @@ class FormInput extends Component {
    * Call the onChange property and sets the state.
    */
   handleValueChange = event => {
-    this.setState({ value: event.target.value });
     if (this.state.errorMessage) {
       this.handleBlur(event);
     }
@@ -101,7 +99,7 @@ class FormInput extends Component {
           placeholder={placeHolder}
           onChange={this.handleValueChange}
           onBlur={this.handleBlur}
-          value={this.state.value}
+          value={this.props.value}
           autoFocus={focus}
           disabled={disabled}
           name={name}
