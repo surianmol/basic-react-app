@@ -23,7 +23,8 @@ class Login extends Component {
     password: "",
     isValidEmail: false,
     isValidPassword: false,
-    errorMessage: ""
+    errorMessage: "",
+    loading: false
   };
 
   componentDidMount() {
@@ -76,6 +77,8 @@ class Login extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
     // Send the request to authenticate.
     AppService.postRequest(API_URLS.LOGIN, {
       email: this.props.user.userEmail,
@@ -84,7 +87,7 @@ class Login extends Component {
       .then(_data => {
         // Set error if it fails to authenticate.
         if (_data.error_code) {
-          this.setState({ errorMessage: _data.message });
+          this.setState({ errorMessage: _data.message, loading: false });
           return;
         }
 
@@ -99,9 +102,12 @@ class Login extends Component {
           },
           true
         );
+
+        this.setState({ loading: false });
       })
       .catch(_error => {
         this.setState({
+          loading: false,
           errorMessage: _error.message
             ? _error.message
             : "Unable to reach server!"
@@ -110,7 +116,7 @@ class Login extends Component {
   };
 
   render() {
-    const { errorMessage } = this.state;
+    const { errorMessage, loading } = this.state;
     const { loggedIn, userName, userEmail } = this.props.user;
 
     return (
@@ -122,6 +128,8 @@ class Login extends Component {
             title={`Welcome${
               userName ? " " + userName : ""
             }, Login to continue`}
+            l
+            loadingText={loading ? "Loading, Please wait..." : ""}
           >
             <div
               className="error-message"
