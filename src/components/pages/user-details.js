@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppService, { API_URLS } from "../../services/app-service";
 import { Redirect, Link } from "react-router-dom";
+import Map from "../containers/map";
 
 /**
  * Component renders user registration form, perform login validation and upon
@@ -197,6 +198,7 @@ class UserDetails extends Component {
               <div>Home Page Title</div>
               <div className="avatar" onClick={this.toggleSideBar} />
             </div>
+            <Map />
             <div
               className="side-bar"
               style={this.getSideBarStyle()}

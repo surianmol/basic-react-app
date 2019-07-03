@@ -22,6 +22,7 @@ code {
 
 .user-card {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   background-color: #eef2f5;
@@ -48,6 +49,58 @@ code {
         width: 32px;
         height: 32px;
         background-image: url(./assets/icon/avatar.png);
+      }
+    }
+
+    &.map-container {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      justify-items: stretch;
+
+      .table {
+        width: 300px;
+        padding: 24px 6px;
+        background-color: #ffffff;
+
+        .main {
+          padding: 0 8px;
+          font-size: 24px;
+          color: #282c34;
+          opacity: 0.8;
+        }
+
+        .name {
+          margin: 6px;
+          padding: 6px;
+          border: 1px solid rgba(40, 44, 52, 0.5);
+          height: 60px;
+
+          &.hover {
+            .title {
+              font-weight: bold;
+            }
+          }
+
+          div {
+            color: #282c34;
+          }
+
+          .title {
+            padding-left: 4px;
+          }
+        }
+      }
+
+      .map {
+        flex: 1;
+        padding: 24px 6px;
+
+        .clicked {
+          div {
+            font-weight: bold;
+          }
+        }
       }
     }
 
@@ -122,6 +175,27 @@ code {
       background-color: gray;
     }
   }
+}
+
+.star-rating {
+  label {
+    padding: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.5em;
+    color: #ababab;
+
+    &.selected {
+      color: #ffd700;
+    }
+  }
+}
+
+.lat-long {
+  font-size: 10px;
+  opacity: 0.8;
+  padding-left: 4px;
+  color: #282c34;
 }
 
 @keyframes slidein {
