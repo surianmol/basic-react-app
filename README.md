@@ -25,3 +25,7 @@ Here are the steps to run the project.
 - Forgot Password page (`forgot-password.js`): Renders reset password form with an email field, sends a reset password request on submit.
 - Signup Page (`register-user.js`): Renders a user registration form redirects the user to details page upon successful user creation.
 - User Details Page(`user-details.js`): Renders a user detail landing page with toggleable sidebar.
+
+## Note
+
+Set the google map api key to constant `GOOGLE_MAP_API_KEY` in `map.js`

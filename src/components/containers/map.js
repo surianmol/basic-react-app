@@ -3,6 +3,8 @@ import GoogleMapReact from "google-map-react";
 import MapMarker from "./map-marker";
 import Rating from "./rating";
 
+const GOOGLE_MAP_API_KEY = "";
+
 class Map extends Component {
   state = {
     markers: [
@@ -98,7 +100,7 @@ class Map extends Component {
         <div className="map">
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyDLNwtog3TGIfdlIG2avnOzuV8aRq2YDXA",
+              key: GOOGLE_MAP_API_KEY,
               language: "en-us"
             }}
             defaultCenter={{
